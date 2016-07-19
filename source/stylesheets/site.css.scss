@@ -1,12 +1,16 @@
+@charset "utf-8";
+@import "normalize";
 @import "compass";
 
-$link-color:         #0388a6;
+$link-color:         #005e7c;
 $link-hover-color:   #009ce0;
 $link-focus-color:   false;
 $link-active-color:  false;
 $link-visited-color: false;
 
-$font-color:  #2a2a2a;
+$background-color: #EAEBED;
+
+$font-color: #0e2a3d;
 $font-family: sans-serif;
 $base-font-size:   12px;
 $base-line-height: 18px;
@@ -18,14 +22,33 @@ $side-gutter-width: $gutter-width;
 
 body {
   font-family: $font-family;
-  color: $font-color; 
-  background: url(/images/bg.png);
+  color: $font-color;
+  background-color: $font-color;
 }
 
 a {
   @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
 }
 
+ul {
+  margin: 0;
+}
+
+li {
+  list-style-type: thai;
+}
+
+h2 {
+  margin: 32px 0 0;
+}
+
 #main {
-  padding: 50px;
+  padding: 32px;
+}
+
+#yakiniku {
+  background-color: #EAEBED;
+  color: $font-color;
+  margin: 64px auto;
+  padding: 32px;
 }
