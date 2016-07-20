@@ -16,3 +16,11 @@
 
 # Ignore .DS_store file
 .DS_Store
+.idea/
+### https://raw.github.com/github/gitignore/843c9a59bf7f48f83de4c875197cb801e2d91279/terraform.gitignore
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+
