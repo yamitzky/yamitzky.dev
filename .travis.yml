@@ -1,17 +1,30 @@
-language: ruby
-rvm:
-- 2.2
-cache: bundler
-sudo: false
-script: bundle exec middleman build
+language: node_js
+node_js:
+  - "8"
+
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+  - master
+
+script:
+  - yarn lint
+
+install:
+  - yarn
+  - yarn generate
+
 deploy:
-  skip_cleanup: true
   provider: s3
+  skip-cleanup: true
+  local-dir: dist
   access_key_id: AKIAJ3GYVDTW5AAST2EA
   secret_access_key:
     secure: Teu7kcMWd+PxUA7WlTSfap/XrQruX2iLJVN8yt0VY0HI6D8QGPUWFKaE/rnizYL83EQQIKw67mQYIZEgH7A2OMTDCA0IzlIHTDP8FS5w5TO9WvN7sIgmt4VtG2bTNsEToy4LtmK7u1Oj5woDh/0mQUdunSnyTUUN9OYgZs1h1+DzQoZ83Wk3NXhoO+7ImlF9DlZO4uyW++doQXbeFBunov/yJhtzrljyVbK1HTp44nn048RPXGOtJa5KO8V21sU7QMpbu/0aa5BoBjITkUocmE8/jROpqZ++Lmedqrl8jphl0yN9bM2KAfPIxzc+H3Yu6P7D6DOAq+hNU3sElNhvMvDC7+tBFmb/YSLd73+IybAcBtNgJiNOpB539GmkASvceQxN6syVtadRB8mx8feG8rzUE4xTbxMyFS/3gyO+kllnmyvpEE85KgU8tvOacawj6riwU9o2tsWr2h/x/tmykOrKalf6IGZi5clk5mTHSnjucClqkbMhvOZKGSjelueBcWxXmUS60eD47b8G8799jXnhbK5LhJew/8eFlFGzHmk6RqWXxuJ40WQaTjeKH8wPZ2MVRrO6dY3v8/LPMieecY+ThZs7SGcu+zIrdd+e3zboUsM/Hu7sZmMfwPfoH7GC3UN0nXYmRzedEUqs88Y9lhQEZSQqD3/iB6vTarwz5Nc=
   bucket: yamitzky.com
-  local-dir: build
   on:
     branch: master
     repo: yamitzky/yamitzky.com

@@ -1,12 +1,12 @@
-@charset "utf-8";
-@import "normalize";
-@import "compass";
+<template>
+  <div id="yakiniku">
+    <nuxt/>
+  </div>
+</template>
 
+<style>
 $link-color:         #005e7c;
 $link-hover-color:   #009ce0;
-$link-focus-color:   false;
-$link-active-color:  false;
-$link-visited-color: false;
 
 $background-color: #EAEBED;
 
@@ -27,7 +27,14 @@ body {
 }
 
 a {
-  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+p, li, h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5em;
 }
 
 ul {
@@ -52,3 +59,4 @@ h2 {
   margin: 64px auto;
   padding: 32px;
 }
+</style>
