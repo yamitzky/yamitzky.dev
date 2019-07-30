@@ -16,7 +16,7 @@
     "normalize.css": "^8.0.0",
     "nuxt": "^1.0.0",
     "postcss-nested": "^4.1.0",
-    "postcss-simple-vars": "^5.0.1"
+    "postcss-simple-vars": "^5.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
