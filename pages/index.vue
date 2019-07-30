@@ -35,8 +35,8 @@
     <h2>📦</h2>
     <ul>
       <li><a href="https://github.com/yamitzky/adaboost.js" target="_blank">AdaBoost w/ Javascript</a></li>
-      <li><a href="ttps://github.com/yamitzky/LDA-inline-c" target="_blank">LDA w/ Scipy.weave(inline C++)</a></li>
-      <li><a href="ttps://github.com/yamitzky/Regularized-SVD" target="_blank">Regularized SVD w/ Cython</a></li>
+      <li><a href="https://github.com/yamitzky/LDA-inline-c" target="_blank">LDA w/ Scipy.weave(inline C++)</a></li>
+      <li><a href="https://github.com/yamitzky/Regularized-SVD" target="_blank">Regularized SVD w/ Cython</a></li>
       <li><a href="https://github.com/yamitzky/ja-wikipedia-corpus-soso" target="_blank">Japanese Wikipedia Corpus for Language Modeling</a></li>
       <li><a href="https://github.com/yamitzky/bottoku" target="_blank">Chatbot framework "bottoku"</a></li>
       <li><a href="https://github.com/yamitzky/Scala-Lambda-Apex-Kuromoji" target="_blank">Scala on AWS Lambda</a></li>
