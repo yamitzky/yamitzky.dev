@@ -34,7 +34,6 @@
     </ul>
     <h2>📦</h2>
     <ul>
-      <li><a href="https://github.com/yamitzky/panchila" target="_blank">Panchilla w/ Javascript</a></li>
       <li><a href="https://github.com/yamitzky/adaboost.js" target="_blank">AdaBoost w/ Javascript</a></li>
       <li><a href="ttps://github.com/yamitzky/LDA-inline-c" target="_blank">LDA w/ Scipy.weave(inline C++)</a></li>
       <li><a href="ttps://github.com/yamitzky/Regularized-SVD" target="_blank">Regularized SVD w/ Cython</a></li>
