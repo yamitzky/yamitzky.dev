@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "nuxt": "^1.0.0",
+    "nuxt": "^2.10.0",
     "postcss-nested": "^4.1.0",
     "postcss-simple-vars": "^5.0.1"
   },
