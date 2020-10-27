@@ -1,0 +1,33 @@
+.top {
+  text-align: center;
+}
+
+.top p {
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+.photo {
+  margin-left: 24px;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .photo {
+    margin-left: 8px;
+  }
+  .top p {
+    width: 90%;
+  }
+  .articles {
+    padding-left: 0;
+  }
+  .articles li {
+    list-style-type: disc;
+  }
+  .articles li + li {
+    margin-top: 8px;
+  }
+}
