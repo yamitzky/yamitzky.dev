@@ -77,7 +77,8 @@ const Home: NextPage<Props> = ({ articles }) => {
         <p>
           JX通信社
           取締役CDO。サーバーレスとPythonとReactとBigQueryをこよなく愛する。登壇・執筆依頼と美味しいガパオの情報は
-          Twitter でお願いします。
+          Twitter
+          でお願いします。(メールは迷惑メールと一緒に見逃してしまう可能性があります)
         </p>
       </div>
       <h2>🧙‍♂️ SNS 🧙‍♂️</h2>
@@ -137,7 +138,7 @@ const Home: NextPage<Props> = ({ articles }) => {
             href="https://gihyo.jp/magazine/wdpress/archive/2018/vol105"
             target="_blank"
           >
-            「サーバーレス」特集
+            「サーバーレス」特集寄稿
           </a>
         </li>
         <li>
@@ -148,7 +149,7 @@ const Home: NextPage<Props> = ({ articles }) => {
           >
             サーバーレスのメリット＆本質を、AWS Lambdaを使って理解しよう
           </a>
-          」
+          」寄稿
         </li>
         <li>
           Developers 2018「
