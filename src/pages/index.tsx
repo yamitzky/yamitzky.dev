@@ -64,6 +64,7 @@ const Home: NextPage<Props> = ({ articles }) => {
       <Head>
         <title>Yamitzky / 小笠原みつき - Portofolio</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://yamitzky.com" />
       </Head>
       <div className={styles.top}>
         <img src="/yamitzky.png" width="127" height="128" />
