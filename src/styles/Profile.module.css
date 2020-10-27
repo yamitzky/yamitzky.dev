@@ -21,13 +21,4 @@
   .top p {
     width: 90%;
   }
-  .articles {
-    padding-left: 0;
-  }
-  .articles li {
-    list-style-type: disc;
-  }
-  .articles li + li {
-    margin-top: 8px;
-  }
 }

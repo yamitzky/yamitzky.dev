@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+  .articles {
+    padding-left: 0;
+  }
+  .articles li {
+    list-style-type: disc;
+  }
+  .articles li + li {
+    margin-top: 8px;
+  }
+}
