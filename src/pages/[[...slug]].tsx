@@ -73,7 +73,7 @@ const Home: NextPage<Props> = ({ articles, page }) => {
   return (
     <section>
       <Head>
-        <title>Yamitzky / 小笠原みつき - Portofolio</title>
+        <title>Yamitzky / 小笠原みつき - Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://yamitzky.com" />
       </Head>
