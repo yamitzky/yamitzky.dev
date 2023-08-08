@@ -7,7 +7,7 @@ export const Career: React.FC = () => {
       <ul>
         <li>2014.04 -&gt; 2015.12: CyberAgent</li>
         <li>2014.05 -&gt; 2015.12: CyberZ</li>
-        <li>2016.01 -&gt; now: JX Press (Chief D. Officer / Engineer)</li>
+        <li>2016.01 -&gt; now: JX Press (CTO / Engineer)</li>
       </ul>
     </>
   )

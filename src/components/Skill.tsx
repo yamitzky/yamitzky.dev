@@ -11,7 +11,7 @@ export const Skill: React.FC = () => {
         <li>GraphQL</li>
         <li>Serverless</li>
         <li>BigQuery</li>
-        <li>AWS, GCP, Firebase</li>
+        <li>AWS, Google Cloud, Firebase</li>
         <li>Machine Learning</li>
         <li>Scala</li>
         <li>Go</li>

@@ -8,9 +8,7 @@ export const Breadcrumb: React.FC<Props> = () => {
   return (
     <ul className={styles.breadcrumb}>
       <li>
-        <Link href="/" passHref>
-          <a>Top</a>
-        </Link>
+        <Link href="/">Top</Link>
       </li>
       <li>Blog</li>
     </ul>

@@ -2,14 +2,14 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { parseStringPromise } from 'xml2js'
 import { Article, Blog, Platform } from '~/components/Blog'
-import { SNS } from '~/components/SNS'
-import { Presentation } from '~/components/Presentation'
-import { Skill } from '~/components/Skill'
-import { OSS } from '~/components/OSS'
-import { Career } from '~/components/Career'
-import { Profile } from '~/components/Profile'
-import { Divider } from '~/components/Divider'
 import { Breadcrumb } from '~/components/Breadcrumb'
+import { Career } from '~/components/Career'
+import { Divider } from '~/components/Divider'
+import { OSS } from '~/components/OSS'
+import { Presentation } from '~/components/Presentation'
+import { Profile } from '~/components/Profile'
+import { SNS } from '~/components/SNS'
+import { Skill } from '~/components/Skill'
 
 type Props = {
   articles: Article[]
@@ -75,7 +75,7 @@ const Home: NextPage<Props> = ({ articles, page }) => {
       <Head>
         <title>Yamitzky / 小笠原みつき - Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://yamitzky.com" />
+        <link rel="canonical" href="https://yamitzky.dev" />
       </Head>
       {page === 'top' && (
         <>

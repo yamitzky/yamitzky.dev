@@ -6,7 +6,7 @@ export const SNS: React.FC = () => {
       <h2 id="sns">🧙‍♂️ SNS 🧙‍♂️</h2>
       <ul>
         <li>
-          <a href="https://twitter.com/yamitzky">Twitter</a>
+          <a href="https://twitter.com/yamitzky">X(旧Twitter)</a>
         </li>
         <li>
           <a href="https://facebook.com/yamitzky">Facebook</a>

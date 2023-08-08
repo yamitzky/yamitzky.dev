@@ -7,6 +7,16 @@ export const Presentation: React.FC = () => {
       <h2 id="presentation">🔈 登壇・寄稿 🔈</h2>
       <ul className={styles.articles}>
         <li>
+          Google Cloud SaaS Summit 2021「
+          <a
+            href="https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04"
+            target="_blank"
+          >
+            大量の防災用データをリアルタイムに集める、サーバーレスなシステムの作り方
+          </a>
+          」
+        </li>
+        <li>
           PyCon JP 2020「
           <a href="https://pycon.jp/2020/timetable/?id=203955" target="_blank">
             Python 3.9 時代の型安全な Pythonの極め方

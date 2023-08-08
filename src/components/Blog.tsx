@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react'
-import styles from '~/styles/Article.module.css'
 import Link from 'next/link'
+import React from 'react'
+import styles from '~/styles/Article.module.css'
 
 export type Platform = 'jxpress' | 'yamitzky' | 'qiita' | 'note'
 
@@ -35,9 +35,7 @@ export const Blog: React.FC<Props> = ({ articles, short }) => {
       </ul>
       {short && (
         <p>
-          <Link href="/blog#blog" passHref>
-            <a>&gt;&gt; 全て見る</a>
-          </Link>
+          <Link href="/blog#blog">&gt;&gt; 全て見る</Link>
         </p>
       )}
       <p>
