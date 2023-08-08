@@ -6,16 +6,14 @@ export const Profile: React.FC = () => {
     <div className={styles.top}>
       <img src="/yamitzky.png" width="127" height="128" />
       <img
-        src="/ogasahara.jpg"
+        src="/ogasahara.png"
         width="127"
         height="128"
         className={styles.photo}
       />
       <h1>I'm 小笠原みつき(@yamitzky), a developer.</h1>
       <p>
-        サーバーレスとPythonとReactとBigQueryをこよなく愛するCTO。登壇・執筆依頼と美味しいガパオの情報は
-        X
-        でお願いします。(メールは迷惑メールと一緒に見逃してしまう可能性があります)
+        サーバーレスとPythonとReactとBigQueryをこよなく愛するCTO。登壇・執筆依頼と美味しいガパオの情報はX(またの名をTwitter)でお願いします。メールは迷惑メールと一緒に見逃してしまう可能性があります。
       </p>
     </div>
   )
