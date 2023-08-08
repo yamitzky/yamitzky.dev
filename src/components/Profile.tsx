@@ -13,9 +13,8 @@ export const Profile: React.FC = () => {
       />
       <h1>I'm 小笠原みつき(@yamitzky), a developer.</h1>
       <p>
-        JX通信社
-        取締役CDO。サーバーレスとPythonとReactとBigQueryをこよなく愛する。登壇・執筆依頼と美味しいガパオの情報は
-        Twitter
+        サーバーレスとPythonとReactとBigQueryをこよなく愛するCTO。登壇・執筆依頼と美味しいガパオの情報は
+        X
         でお願いします。(メールは迷惑メールと一緒に見逃してしまう可能性があります)
       </p>
     </div>
