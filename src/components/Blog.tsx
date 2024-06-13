@@ -1,8 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
-import styles from '~/styles/Article.module.css'
+import { SectionTitle } from './SectionTitle'
 
-export type Platform = 'jxpress' | 'yamitzky' | 'qiita' | 'note'
+export type Platform =
+  | 'jxpress'
+  | 'yamitzky'
+  | 'qiita'
+  | 'note'
+  | 'zenn'
+  | 'cyberz-dev'
 
 export type Article = {
   title: string
@@ -13,38 +19,44 @@ export type Article = {
 
 type Props = {
   articles: Article[]
-  short?: boolean
+  total?: number
 }
 
-export const Blog: React.FC<Props> = ({ articles, short }) => {
+export const Blog: React.FC<Props> = ({ articles, total }) => {
   return (
-    <>
-      <h2 id="blog">📝 ブログ 📝</h2>
-      <ul className={styles.articles}>
+    <section className="space-y-4" id="blog">
+      <SectionTitle icon="📝">ブログ</SectionTitle>
+      <ul className="space-y-4 md:space-y-2">
         {articles.map((article) => (
-          <li key={article.link}>
-            {article.published.slice(0, 10)}{' '}
-            <a href={article.link} target="_blank">
-              「{article.title}」
+          <li key={article.link} className="block">
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noreferrer"
+              className="md:flex justify-between items-center flex-wrap"
+            >
+              <h3 className="font-bold">{article.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-gray-400">
+                {article.platform === 'yamitzky' && '個人ブログ'}
+                {article.platform === 'jxpress' && 'JX Press Tech Blog'}
+                {article.platform === 'qiita' && 'Qiita'}
+                {article.platform === 'note' && 'note'}
+                {article.platform === 'zenn' && 'Zenn'}
+                {article.platform === 'cyberz-dev' && 'cyberz-dev'}
+                {' - '}
+                {article.published.slice(0, 10)}
+              </p>
             </a>
-            {article.platform === 'jxpress' && '(JX)'}
-            {article.platform === 'qiita' && '(Qiita)'}
-            {article.platform === 'note' && '(note)'}
           </li>
         ))}
       </ul>
-      {short && (
+      {total != null && (
         <p>
-          <Link href="/blog#blog">&gt;&gt; 全て見る</Link>
+          <Link href="/blog#blog" className="text-cyan-500">
+            ➠ 全ての記事を見る
+          </Link>
         </p>
       )}
-      <p>
-        <a href="https://yamitzky.hatenablog.com">個人ブログ</a>、
-        <a href="https://note.com/yamitzky">note</a>、
-        <a href="https://tech.jxpress.net">JX通信社技術ブログ</a>、
-        <a href="https://qiita.com/yamitzky">Qiita</a>
-        のものも含んだ直近のブログ記事一覧です
-      </p>
-    </>
+    </section>
   )
 }

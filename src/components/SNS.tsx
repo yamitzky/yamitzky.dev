@@ -1,12 +1,13 @@
 import React from 'react'
+import { SectionTitle } from './SectionTitle'
 
 export const SNS: React.FC = () => {
   return (
-    <>
-      <h2 id="sns">🧙‍♂️ SNS 🧙‍♂️</h2>
-      <ul>
+    <section className="space-y-4" id="sns">
+      <SectionTitle icon="🧙‍♂️">Links</SectionTitle>
+      <ul className="flex flex-row space-x-4 md:space-x-8 flex-wrap font-semibold">
         <li>
-          <a href="https://twitter.com/yamitzky">X(旧Twitter)</a>
+          <a href="https://twitter.com/yamitzky">X(formerly Twitter)</a>
         </li>
         <li>
           <a href="https://facebook.com/yamitzky">Facebook</a>
@@ -20,8 +21,8 @@ export const SNS: React.FC = () => {
         <li>
           <a href="https://hub.docker.com/r/yamitzky">Docker Hub</a>
         </li>
-        <li>mail: negiga@gmail.com</li>
       </ul>
-    </>
+      <p>💌 negiga@gmail.com</p>
+    </section>
   )
 }

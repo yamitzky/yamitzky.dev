@@ -1,79 +1,87 @@
 import React from 'react'
-import styles from '~/styles/Article.module.css'
+import { SectionTitle } from './SectionTitle'
+
+type Presentation = {
+  event: string
+  title: string
+  url: string
+  description: string
+}
+
+const Presentations: Presentation[] = [
+  {
+    event: 'Google Cloud SaaS Summit 2021',
+    title:
+      '大量の防災用データをリアルタイムに集める、サーバーレスなシステムの作り方',
+    url: 'https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04',
+    description: 'サーバーレスなシステムの作り方',
+  },
+  {
+    event: 'PyCon JP 2020',
+    title: 'Python 3.9 時代の型安全な Pythonの極め方',
+    url: 'https://pycon.jp/2020/timetable/?id=203955',
+    description: 'Python 3.9 時代の型安全な Pythonの極め方',
+  },
+  {
+    event: 'Developers Boost 2020 基調講演',
+    title:
+      '技術が好きで好きで好きでたまらないエンジニアが『取締役』になって思う、マネジメントキャリアパス',
+    url: 'https://event.shoeisha.jp/devboost/20201212/session/2981',
+    description: '',
+  },
+  {
+    event: '技術評論社 WEB+DB PRESS Vol.105',
+    title: '「サーバーレス」特集寄稿',
+    url: 'https://gihyo.jp/magazine/wdpress/archive/2018/vol105',
+    description: 'サーバーレスのメリットと本質を、AWS Lambdaを使って理解しよう',
+  },
+  {
+    event: 'エンジニアHub',
+    title: 'サーバーレスのメリット＆本質を、AWS Lambdaを使って理解しよう',
+    url: 'https://eh-career.com/engineerhub/entry/2018/07/03/110000',
+    description: 'サーバーレスのメリットと本質を、AWS Lambdaを使って理解しよう',
+  },
+  {
+    event: 'Developers Boost 2018',
+    title: 'なぜサーバーレス『と』Dockerなのか',
+    url: 'https://event.shoeisha.jp/devboost/20181215/session/1907/',
+    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
+  },
+  {
+    event: 'Developers Summit 2018',
+    title: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
+    url: 'https://event.shoeisha.jp/devsumi/20180215/session/1649/',
+    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
+  },
+  {
+    event: 'builderscon tokyo 2017',
+    title: 'ここが辛いよサーバーレス。だが私は乗り越えた',
+    url: 'https://speakerdeck.com/yamitzky/kokogaxin-iyosabaresu-dagasi-hacheng-riyue-eta-number-builderscon',
+    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
+  },
+]
 
 export const Presentation: React.FC = () => {
   return (
-    <>
-      <h2 id="presentation">🔈 登壇・寄稿 🔈</h2>
-      <ul className={styles.articles}>
-        <li>
-          Google Cloud SaaS Summit 2021「
-          <a
-            href="https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04"
-            target="_blank"
-          >
-            大量の防災用データをリアルタイムに集める、サーバーレスなシステムの作り方
-          </a>
-          」
-        </li>
-        <li>
-          PyCon JP 2020「
-          <a href="https://pycon.jp/2020/timetable/?id=203955" target="_blank">
-            Python 3.9 時代の型安全な Pythonの極め方
-          </a>
-          」
-        </li>
-        <li>
-          技術評論社 WEB+DB PRESS Vol.105{' '}
-          <a
-            href="https://gihyo.jp/magazine/wdpress/archive/2018/vol105"
-            target="_blank"
-          >
-            「サーバーレス」特集寄稿
-          </a>
-        </li>
-        <li>
-          エンジニアHub 「
-          <a
-            href="https://eh-career.com/engineerhub/entry/2018/07/03/110000"
-            target="_blank"
-          >
-            サーバーレスのメリット＆本質を、AWS Lambdaを使って理解しよう
-          </a>
-          」寄稿
-        </li>
-        <li>
-          Developers 2018「
-          <a
-            href="https://event.shoeisha.jp/devboost/20181215/session/1907/"
-            target="_blank"
-          >
-            なぜサーバーレス『と』Dockerなのか
-            〜インフラ運用を最小化するサービス開発〜
-          </a>
-          」
-        </li>
-        <li>
-          Developers Summit 2018「
-          <a
-            href="https://event.shoeisha.jp/devsumi/20180215/session/1649/"
-            target="_blank"
-          >
-            サーバーレスを活用して少数精鋭で開発するニュースアプリ
-          </a>
-          」
-        </li>
-        <li>
-          builderscon tokyo 2017「
-          <a
-            href="https://speakerdeck.com/yamitzky/kokogaxin-iyosabaresu-dagasi-hacheng-riyue-eta-number-builderscon"
-            target="_blank"
-          >
-            ここが辛いよサーバーレス。だが私は乗り越えた
-          </a>
-          」
-        </li>
+    <section className="space-y-4" id="presentation">
+      <SectionTitle icon="🔈">登壇・寄稿</SectionTitle>
+      <ul className="space-y-4 md:space-y-2">
+        {Presentations.map((presentation) => (
+          <li key={presentation.url} className="block">
+            <a
+              href={presentation.url}
+              target="_blank"
+              rel="noreferrer"
+              className="md:flex justify-between items-center flex-wrap"
+            >
+              <h3 className="font-bold">{presentation.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-gray-400">
+                {presentation.event}
+              </p>
+            </a>
+          </li>
+        ))}
       </ul>
-    </>
+    </section>
   )
 }

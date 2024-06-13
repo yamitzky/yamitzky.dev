@@ -9,7 +9,7 @@ const Error: NextPage<Props> = ({ message }) => {
 }
 
 export const getInitialProps = ({ err }: NextPageContext) => {
-  return { message: err.message }
+  return { message: err?.message }
 }
 
 export default Error
