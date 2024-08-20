@@ -5,59 +5,56 @@ type Presentation = {
   event: string
   title: string
   url: string
-  description: string
 }
 
 const Presentations: Presentation[] = [
+  {
+    event: 'GBTM#3',
+    title:
+      'プロダクトの正しい「やめ方」〜スタートアップのCTOは大きな決断にどう向き合うか？〜(パネラー登壇)',
+    url: 'https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04',
+  },
   {
     event: 'Google Cloud SaaS Summit 2021',
     title:
       '大量の防災用データをリアルタイムに集める、サーバーレスなシステムの作り方',
     url: 'https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04',
-    description: 'サーバーレスなシステムの作り方',
   },
   {
     event: 'PyCon JP 2020',
     title: 'Python 3.9 時代の型安全な Pythonの極め方',
     url: 'https://pycon.jp/2020/timetable/?id=203955',
-    description: 'Python 3.9 時代の型安全な Pythonの極め方',
   },
   {
     event: 'Developers Boost 2020 基調講演',
     title:
       '技術が好きで好きで好きでたまらないエンジニアが『取締役』になって思う、マネジメントキャリアパス',
     url: 'https://event.shoeisha.jp/devboost/20201212/session/2981',
-    description: '',
   },
   {
     event: '技術評論社 WEB+DB PRESS Vol.105',
     title: '「サーバーレス」特集寄稿',
     url: 'https://gihyo.jp/magazine/wdpress/archive/2018/vol105',
-    description: 'サーバーレスのメリットと本質を、AWS Lambdaを使って理解しよう',
   },
   {
     event: 'エンジニアHub',
     title: 'サーバーレスのメリット＆本質を、AWS Lambdaを使って理解しよう',
     url: 'https://eh-career.com/engineerhub/entry/2018/07/03/110000',
-    description: 'サーバーレスのメリットと本質を、AWS Lambdaを使って理解しよう',
   },
   {
     event: 'Developers Boost 2018',
     title: 'なぜサーバーレス『と』Dockerなのか',
     url: 'https://event.shoeisha.jp/devboost/20181215/session/1907/',
-    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
   },
   {
     event: 'Developers Summit 2018',
     title: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
     url: 'https://event.shoeisha.jp/devsumi/20180215/session/1649/',
-    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
   },
   {
     event: 'builderscon tokyo 2017',
     title: 'ここが辛いよサーバーレス。だが私は乗り越えた',
     url: 'https://speakerdeck.com/yamitzky/kokogaxin-iyosabaresu-dagasi-hacheng-riyue-eta-number-builderscon',
-    description: 'サーバーレスを活用して少数精鋭で開発するニュースアプリ',
   },
 ]
 
