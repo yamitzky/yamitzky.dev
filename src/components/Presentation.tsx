@@ -12,7 +12,7 @@ const Presentations: Presentation[] = [
     event: 'GBTM#3',
     title:
       'プロダクトの正しい「やめ方」〜スタートアップのCTOは大きな決断にどう向き合うか？〜(パネラー登壇)',
-    url: 'https://cloudonair.withgoogle.com/events/saas-summit?talk=d3-04',
+    url: 'https://globalbrains.connpass.com/event/324893/',
   },
   {
     event: 'Google Cloud SaaS Summit 2021',
