@@ -9,6 +9,11 @@ type Presentation = {
 
 const Presentations: Presentation[] = [
   {
+    event: 'ROSCAFE#12',
+    title: 'コスト管理から向き合う技術的負債',
+    url: 'https://rosca.connpass.com/event/336045/',
+  },
+  {
     event: 'GBTM#3',
     title:
       'プロダクトの正しい「やめ方」〜スタートアップのCTOは大きな決断にどう向き合うか？〜(パネラー登壇)',
