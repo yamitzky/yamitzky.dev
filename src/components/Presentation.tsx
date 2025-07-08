@@ -9,6 +9,11 @@ type Presentation = {
 
 const Presentations: Presentation[] = [
   {
+    event: '情シス・コーポレートITのSaaSアカウント管理　効率化の取り組み',
+    title: 'ひとり情シスなCTOがLLMと始めるオペレーション最適化',
+    url: 'https://findy.connpass.com/event/358280/',
+  },
+  {
     event: 'ROSCAFE#12',
     title: 'コスト管理から向き合う技術的負債',
     url: 'https://rosca.connpass.com/event/336045/',
