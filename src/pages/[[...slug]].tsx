@@ -60,7 +60,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const oldArticles: Article[] = [
+const manualArticles: Article[] = [
+  {
+    title:
+      'Claude Code GitHub Actionsを使えば、Issue登録だけで誰でもプルリクを作れるようになる',
+    published: '2025-11-26T09:00:00.000Z',
+    link: 'https://findy-tools.io/products/claudecode/1065/746',
+    platform: 'findy-tools',
+  },
   {
     title: 'Pandas経由でHiveQLを実行してDataFrameに簡単に入れる方法',
     published: '2015-05-13T00:00:00.000Z',
@@ -121,7 +128,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     ...qiita,
     ...note,
     ...zenn,
-    ...oldArticles,
+    ...manualArticles,
   ].sort((a, b) => (a.published > b.published ? -1 : 1))
 
   return {

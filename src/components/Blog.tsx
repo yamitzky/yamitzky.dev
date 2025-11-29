@@ -9,6 +9,7 @@ export type Platform =
   | 'note'
   | 'zenn'
   | 'cyberz-dev'
+  | 'findy-tools'
 
 export type Article = {
   title: string
@@ -43,6 +44,7 @@ export const Blog: React.FC<Props> = ({ articles, total }) => {
                 {article.platform === 'note' && 'note'}
                 {article.platform === 'zenn' && 'Zenn'}
                 {article.platform === 'cyberz-dev' && 'cyberz-dev'}
+                {article.platform === 'findy-tools' && 'Findy Tools'}
                 {' - '}
                 {article.published.slice(0, 10)}
               </p>
