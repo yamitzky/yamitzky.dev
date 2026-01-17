@@ -1,6 +1,7 @@
 // Profile
 export type Profile = {
   name: string
+  englishName: string
   handle: string
   bio: string
   avatars: {
