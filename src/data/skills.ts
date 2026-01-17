@@ -20,4 +20,9 @@ export const skills: Skill[] = [
   { name: 'LLM', category: 'AI / ML' },
 ]
 
-export const skillCategories = ['Frontend', 'Backend', 'Cloud', 'AI / ML'] as const
+export const skillCategories = [
+  'Frontend',
+  'Backend',
+  'Cloud',
+  'AI / ML',
+] as const

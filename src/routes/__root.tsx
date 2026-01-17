@@ -1,5 +1,11 @@
 /// <reference types="vite/client" />
-import { HeadContent, Outlet, Scripts, createRootRoute, Link } from '@tanstack/react-router'
+import {
+  createRootRoute,
+  HeadContent,
+  Link,
+  Outlet,
+  Scripts,
+} from '@tanstack/react-router'
 
 import appCss from '../styles.css?url'
 
@@ -9,7 +15,11 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { title: 'Yamitzky / 小笠原みつき' },
-      { name: 'description', content: 'サーバーレスとPythonとReactとBigQueryと猫とKPOPをこよなく愛するCTO' },
+      {
+        name: 'description',
+        content:
+          'サーバーレスとPythonとReactとBigQueryと猫とKPOPをこよなく愛するCTO',
+      },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
@@ -36,17 +46,29 @@ function RootComponent() {
         <header className="fixed top-0 left-0 right-0 z-50">
           <div className="mx-4 mt-4">
             <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between glass-card">
-              <Link to="/" className="font-semibold tracking-tight hover:text-[var(--accent)] transition-colors">
-              yamitzky.dev
+              <Link
+                to="/"
+                className="font-semibold tracking-tight hover:text-[var(--accent)] transition-colors"
+              >
+                yamitzky.dev
               </Link>
               <div className="flex items-center gap-1">
-                <a href="/#presentation" className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]">
+                <a
+                  href="/#presentation"
+                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                >
                   Presentations
                 </a>
-                <a href="/#oss" className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]">
+                <a
+                  href="/#oss"
+                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                >
                   Works
                 </a>
-                <Link to="/blog" className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]">
+                <Link
+                  to="/blog"
+                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                >
                   Blog
                 </Link>
               </div>
@@ -65,10 +87,20 @@ function RootComponent() {
                 © {new Date().getFullYear()} yamitzky
               </p>
               <div className="flex gap-6 text-sm">
-                <a href="https://github.com/yamitzky" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] link-hover">
+                <a
+                  href="https://github.com/yamitzky"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[var(--text-muted)] link-hover"
+                >
                   GitHub
                 </a>
-                <a href="https://twitter.com/yamitzky" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] link-hover">
+                <a
+                  href="https://twitter.com/yamitzky"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[var(--text-muted)] link-hover"
+                >
                   X
                 </a>
               </div>

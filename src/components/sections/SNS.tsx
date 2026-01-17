@@ -1,4 +1,4 @@
-import { snsLinks, email } from '@/data/sns'
+import { email, snsLinks } from '@/data/sns'
 
 export function SNS() {
   return (

@@ -32,8 +32,12 @@ export function Profile() {
           {profile.name}
         </h1>
         <div className="flex items-center gap-3">
-          <span className="font-mono text-[var(--accent)] text-glow">{profile.handle}</span>
-          <span className="text-[var(--text-secondary)]">{profile.englishName}</span>
+          <span className="font-mono text-[var(--accent)] text-glow">
+            {profile.handle}
+          </span>
+          <span className="text-[var(--text-secondary)]">
+            {profile.englishName}
+          </span>
         </div>
       </div>
 

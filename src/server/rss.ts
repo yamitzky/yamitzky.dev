@@ -1,8 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { parseStringPromise } from 'xml2js'
-import type { Article, Platform } from '@/types'
-import { rssFeeds } from '@/data/rss-feeds'
 import { manualArticles } from '@/data/manual-articles'
+import { rssFeeds } from '@/data/rss-feeds'
+import type { Article, Platform } from '@/types'
 
 type AtomEntry = {
   title: string[]
@@ -16,10 +16,7 @@ type RSSEntry = {
   link: string[]
 }
 
-async function fetchFeed(
-  platform: Platform,
-  url: string
-): Promise<Article[]> {
+async function fetchFeed(platform: Platform, url: string): Promise<Article[]> {
   try {
     const res = await fetch(url)
     const text = await res.text()

@@ -1,4 +1,4 @@
-import type { OSSProject, OSSItem } from '@/types'
+import type { OSSItem, OSSProject } from '@/types'
 
 export const mainOSSProjects: OSSProject[] = [
   {

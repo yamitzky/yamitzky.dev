@@ -1,4 +1,4 @@
-import { skills, skillCategories } from '@/data/skills'
+import { skillCategories, skills } from '@/data/skills'
 
 export function Skills() {
   return (
@@ -8,7 +8,9 @@ export function Skills() {
       <div className="grid grid-cols-2 gap-6">
         {skillCategories.map((category) => (
           <div key={category}>
-            <h3 className="font-semibold text-[var(--accent)] mb-3 text-sm">{category}</h3>
+            <h3 className="font-semibold text-[var(--accent)] mb-3 text-sm">
+              {category}
+            </h3>
             <ul className="space-y-1.5 text-[var(--text-secondary)] text-sm">
               {skills
                 .filter((skill) => skill.category === category)

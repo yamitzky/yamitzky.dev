@@ -9,14 +9,13 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": { "enabled": true },
+  "assist": { "enabled": true },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": false,
       "a11y": {
         "noAriaUnsupportedElements": "warn",
-        "noBlankTarget": "error",
         "useAltText": "warn",
         "useAriaPropsForRole": "warn",
         "useValidAriaProps": "warn",
@@ -44,6 +43,5 @@
       "quoteStyle": "single",
       "attributePosition": "auto"
     }
-  },
-  "overrides": [{ "include": ["**/*.ts?(x)"] }]
+  }
 }

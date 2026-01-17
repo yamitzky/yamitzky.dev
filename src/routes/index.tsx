@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Profile } from '@/components/sections/Profile'
-import { SNS } from '@/components/sections/SNS'
-import { Presentations } from '@/components/sections/Presentations'
 import { Blog } from '@/components/sections/Blog'
-import { OSS } from '@/components/sections/OSS'
 import { Career } from '@/components/sections/Career'
+import { OSS } from '@/components/sections/OSS'
+import { Presentations } from '@/components/sections/Presentations'
+import { Profile } from '@/components/sections/Profile'
 import { Skills } from '@/components/sections/Skills'
+import { SNS } from '@/components/sections/SNS'
 import { getArticles } from '@/server/rss'
 
 export const Route = createFileRoute('/')({

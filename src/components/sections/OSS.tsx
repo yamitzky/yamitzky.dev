@@ -5,13 +5,18 @@ export function OSS() {
     <section id="oss">
       <div className="flex items-center gap-4 mb-8">
         <h2 className="text-2xl font-semibold tracking-tight">作ったもの</h2>
-        <span className="floating-label">{mainOSSProjects.length + otherOSSItems.length} projects</span>
+        <span className="floating-label">
+          {mainOSSProjects.length + otherOSSItems.length} projects
+        </span>
       </div>
 
       {/* Featured */}
       <div className="grid gap-6 sm:grid-cols-2 mb-10">
         {mainOSSProjects.map((project) => (
-          <article key={project.url} className="group gradient-border overflow-hidden">
+          <article
+            key={project.url}
+            className="group gradient-border overflow-hidden"
+          >
             {project.image && (
               <div className="aspect-video overflow-hidden">
                 <img

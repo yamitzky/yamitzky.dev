@@ -18,12 +18,18 @@ const platformLabels: Record<Article['platform'], string> = {
   'cyberz-dev': 'CyberZ',
 }
 
-export function Blog({ articles, total, columns = 3, showTitle = true }: Props) {
-  const gridClass = columns === 1
-    ? 'grid gap-4'
-    : columns === 2
-      ? 'grid gap-4 sm:grid-cols-2'
-      : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3'
+export function Blog({
+  articles,
+  total,
+  columns = 3,
+  showTitle = true,
+}: Props) {
+  const gridClass =
+    columns === 1
+      ? 'grid gap-4'
+      : columns === 2
+        ? 'grid gap-4 sm:grid-cols-2'
+        : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3'
 
   return (
     <section id="blog">
@@ -34,7 +40,10 @@ export function Blog({ articles, total, columns = 3, showTitle = true }: Props) 
             {total && <span className="floating-label">{total} posts</span>}
           </div>
           {total && (
-            <Link to="/blog" className="text-sm text-[var(--accent)] link-hover font-medium">
+            <Link
+              to="/blog"
+              className="text-sm text-[var(--accent)] link-hover font-medium"
+            >
               すべて見る
             </Link>
           )}
