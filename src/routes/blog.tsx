@@ -10,6 +10,9 @@ export const Route = createFileRoute('/blog')({
   },
   head: () => ({
     meta: [{ title: 'Articles — Yamitzky' }],
+    links: [
+      { rel: 'alternate', type: 'application/rss+xml', title: 'RSS Feed', href: '/api/feed' },
+    ],
   }),
   component: BlogPage,
 })
@@ -27,9 +30,19 @@ function BlogPage() {
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-3">
           Articles
         </h1>
-        <p className="floating-label">
-          {articles.length} posts
-        </p>
+        <div className="flex items-center gap-4">
+          <p className="floating-label">
+            {articles.length} posts
+          </p>
+          <a
+            href="/api/feed"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+          >
+            RSS
+          </a>
+        </div>
       </div>
 
       {/* Content */}
