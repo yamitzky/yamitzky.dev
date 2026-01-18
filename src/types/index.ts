@@ -22,6 +22,8 @@ export type Presentation = {
   event: string
   title: string
   url: string
+  year?: number
+  badge?: string
 }
 
 // OSS Projects

@@ -71,6 +71,12 @@ function RootComponent() {
                 >
                   Blog
                 </Link>
+                <Link
+                  to="/resume"
+                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                >
+                  Resume
+                </Link>
               </div>
             </nav>
           </div>

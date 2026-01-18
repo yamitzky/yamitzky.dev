@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiFeedRouteImport } from './routes/api/feed'
 
+const ResumeRoute = ResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -32,35 +38,46 @@ const ApiFeedRoute = ApiFeedRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/api/feed'
+  fullPaths: '/' | '/blog' | '/resume' | '/api/feed'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/api/feed'
-  id: '__root__' | '/' | '/blog' | '/api/feed'
+  to: '/' | '/blog' | '/resume' | '/api/feed'
+  id: '__root__' | '/' | '/blog' | '/resume' | '/api/feed'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  ResumeRoute: typeof ResumeRoute
   ApiFeedRoute: typeof ApiFeedRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/resume': {
+      id: '/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  ResumeRoute: ResumeRoute,
   ApiFeedRoute: ApiFeedRoute,
 }
 export const routeTree = rootRouteImport

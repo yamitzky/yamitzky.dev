@@ -203,3 +203,114 @@ body {
   color: var(--accent);
   opacity: 0.7;
 }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Override CSS variables for print */
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-elevated: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-muted: #333333;
+    --accent: #000000;
+    --border: #cccccc;
+  }
+
+  /* Reset to standard document font (serif for formal documents) */
+  body {
+    font-family:
+      "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "YuMincho",
+      "MS PMincho", serif;
+    background: white !important;
+    color: black !important;
+    font-size: 10pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Ensure all text is black */
+  * {
+    color: black !important;
+  }
+
+  /* Hide navigation, footer, and decorative elements */
+  body > header,
+  body > footer,
+  .fixed,
+  .divider {
+    display: none !important;
+  }
+
+  /* Disable all animations */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [class*="animate-"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Resume page layout */
+  .resume-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .resume-header {
+    margin-bottom: 1.5rem !important;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1rem;
+  }
+
+  .resume-section {
+    margin-bottom: 1.2rem !important;
+  }
+
+  .resume-section-title {
+    font-family: inherit !important;
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    color: black !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.75rem !important;
+    break-after: avoid;
+  }
+
+  /* Page breaks */
+  .project-block {
+    break-inside: avoid;
+  }
+
+  /* Tag styling for print - inline text */
+  .tag-print {
+    display: inline !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+  }
+
+  /* Link styling - no underlines or colors */
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  a::after {
+    content: none !important;
+  }
+
+  .link-hover::after {
+    display: none !important;
+  }
+}

@@ -11,3 +11,6 @@ count.txt
 .output
 .vinxi
 todos.json
+
+# Resume encryption (DO NOT commit)
+resume.plaintext.ts
