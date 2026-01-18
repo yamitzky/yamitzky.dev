@@ -20,11 +20,11 @@ export function Presentations() {
             <span className="number-marker text-xs mt-0.5">
               {String(index + 1).padStart(2, '0')}
             </span>
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 flex justify-between gap-4">
               <span className="text-sm group-hover:text-[var(--accent)] transition-colors">
                 {item.title}
               </span>
-              <span className="text-[var(--text-muted)] text-sm float-right ml-4">
+              <span className="text-[var(--text-muted)] text-sm text-right shrink-0">
                 {item.event}
               </span>
             </div>

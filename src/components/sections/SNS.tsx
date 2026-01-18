@@ -16,7 +16,6 @@ export function SNS() {
           </a>
         ))}
         <a href={`mailto:${email}`} className="pill">
-          <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
           {email}
         </a>
       </div>
