@@ -170,7 +170,7 @@ function ResumePage() {
 
       {/* Header */}
       <header className="resume-header mb-12 animate-reveal">
-        <div className="flex items-baseline justify-between mb-2 print:mb-1">
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 mb-2 print:mb-1 print:flex-row print:items-baseline print:justify-between">
           <h1 className="text-3xl font-bold print:text-2xl">小笠原 光貴</h1>
           <p className="text-sm text-[var(--text-muted)] print:text-xs">
             2026年1月18日
@@ -267,7 +267,7 @@ function ResumePage() {
               <div key={exp.company} className="company-block">
                 {/* Company Header + Roles */}
                 <div className="mb-6 print:mb-4">
-                  <div className="flex items-baseline justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 print:flex-row print:items-baseline print:justify-between">
                     <h3 className="text-xl font-semibold print:text-base print:font-bold">
                       {exp.company}
                     </h3>
