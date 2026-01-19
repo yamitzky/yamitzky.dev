@@ -45,35 +45,35 @@ function RootComponent() {
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50">
           <div className="mx-4 mt-4">
-            <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between glass-card">
+            <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between glass-card overflow-x-auto">
               <Link
                 to="/"
-                className="font-semibold tracking-tight hover:text-[var(--accent)] transition-colors"
+                className="font-semibold tracking-tight hover:text-[var(--accent)] transition-colors shrink-0"
               >
                 yamitzky.dev
               </Link>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 shrink-0">
                 <a
                   href="/#presentation"
-                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                  className="px-2 sm:px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)] whitespace-nowrap"
                 >
                   Presentations
                 </a>
                 <a
                   href="/#oss"
-                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                  className="px-2 sm:px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)] whitespace-nowrap"
                 >
                   Works
                 </a>
                 <Link
                   to="/blog"
-                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                  className="px-2 sm:px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)] whitespace-nowrap"
                 >
                   Blog
                 </Link>
                 <Link
                   to="/resume"
-                  className="px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)]"
+                  className="px-2 sm:px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--bg-elevated)] whitespace-nowrap"
                 >
                   Resume
                 </Link>
