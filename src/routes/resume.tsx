@@ -346,7 +346,7 @@ function ResumePage() {
                 {/* Company Header + Roles */}
                 <div className="mb-6 print:mb-4">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 print:flex-row print:items-baseline print:justify-between">
-                    <h3 className="text-xl font-semibold print:text-base print:font-bold">
+                    <h3 className="text-xl font-semibold text-[var(--accent)] print:text-base print:font-bold print:text-black">
                       {exp.company}
                     </h3>
                     <span className="text-sm text-[var(--text-muted)] print:text-xs">
