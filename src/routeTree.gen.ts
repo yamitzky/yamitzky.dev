@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiResumeRouteImport } from './routes/api/resume'
 import { Route as ApiFeedRouteImport } from './routes/api/feed'
 
 const ResumeRoute = ResumeRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiResumeRoute = ApiResumeRouteImport.update({
+  id: '/api/resume',
+  path: '/api/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiFeedRoute = ApiFeedRouteImport.update({
   id: '/api/feed',
   path: '/api/feed',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
+  '/api/resume': typeof ApiResumeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
+  '/api/resume': typeof ApiResumeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/resume': typeof ResumeRoute
   '/api/feed': typeof ApiFeedRoute
+  '/api/resume': typeof ApiResumeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/resume' | '/api/feed'
+  fullPaths: '/' | '/blog' | '/resume' | '/api/feed' | '/api/resume'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/resume' | '/api/feed'
-  id: '__root__' | '/' | '/blog' | '/resume' | '/api/feed'
+  to: '/' | '/blog' | '/resume' | '/api/feed' | '/api/resume'
+  id: '__root__' | '/' | '/blog' | '/resume' | '/api/feed' | '/api/resume'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ResumeRoute: typeof ResumeRoute
   ApiFeedRoute: typeof ApiFeedRoute
+  ApiResumeRoute: typeof ApiResumeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/resume': {
+      id: '/api/resume'
+      path: '/api/resume'
+      fullPath: '/api/resume'
+      preLoaderRoute: typeof ApiResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/feed': {
       id: '/api/feed'
       path: '/api/feed'
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ResumeRoute: ResumeRoute,
   ApiFeedRoute: ApiFeedRoute,
+  ApiResumeRoute: ApiResumeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

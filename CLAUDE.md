@@ -26,14 +26,16 @@ The `workExperiences` data in `/resume` is E2E encrypted. Only users with a vali
 
 ## Environment Variables
 
-Required in `.env.local`:
+Required in `.env.local` (for local development):
 ```
 RESUME_MASTER_KEY=<32 bytes hex>
 RESUME_SIGNING_KEY=<32 bytes hex>
-VITE_SIGNING_KEY=<same as RESUME_SIGNING_KEY>
 ```
 
 Generate keys with: `openssl rand -hex 32`
+
+For Vercel deployment, set the same environment variables in Project Settings > Environment Variables.
+These are server-only variables (no `VITE_` prefix), so they won't be exposed to the browser.
 
 ## Editing workExperiences
 
