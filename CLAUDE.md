@@ -47,7 +47,12 @@ These are server-only variables (no `VITE_` prefix), so they won't be exposed to
 ## Generating Access Tokens
 
 ```bash
-bun run scripts/generate-token.ts --days=7
+bun run scripts/generate-token.ts --recipient=company_name --days=7
 ```
 
+- `--recipient` (required): Identifier for the token recipient (e.g., company name)
+- `--days` (optional, default: 7): Token validity period
+
 Share the generated URL: `/resume#token=xxx`
+
+Access logs include the recipient identifier, so leaked tokens can be traced back to their source.

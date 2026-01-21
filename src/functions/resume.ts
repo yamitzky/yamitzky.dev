@@ -4,6 +4,7 @@ import type { EncryptedProjects } from '@/data/resume'
 import encryptedData from '@/data/resume.encrypted.json'
 
 type Token = {
+  recipient: string
   exp: number
   sig: string
 }
@@ -22,16 +23,20 @@ function base64UrlDecode(str: string): string {
 function verifyToken(tokenStr: string, signingKey: string): Token | null {
   try {
     const decoded = JSON.parse(base64UrlDecode(tokenStr))
-    const { exp, sig } = decoded as Token
+    const { recipient, exp, sig } = decoded as Token
+
+    if (!recipient || typeof recipient !== 'string') {
+      return null
+    }
 
     if (Date.now() > exp * 1000) {
       return null
     }
 
-    // Sign expiration only (master key is not in token)
+    // Sign recipient + expiration
     const expectedSig = crypto
       .createHmac('sha256', signingKey)
-      .update(exp.toString())
+      .update(recipient + exp.toString())
       .digest('hex')
 
     // Use timing-safe comparison to prevent timing attacks
@@ -44,7 +49,7 @@ function verifyToken(tokenStr: string, signingKey: string): Token | null {
       return null
     }
 
-    return { exp, sig }
+    return { recipient, exp, sig }
   } catch {
     return null
   }
@@ -87,6 +92,11 @@ export const unlockResume = createServerFn({ method: 'POST' })
       throw new Error('Invalid or expired token')
     }
 
+    // Log access for tracking (recipient can be identified if token is leaked)
+    console.log(
+      `[Resume Access] recipient=${verified.recipient} exp=${new Date(verified.exp * 1000).toISOString()}`
+    )
+
     // Use server-side master key (not from token)
     const projects = decryptWorkExperiences<EncryptedProjects>(
       encryptedData,
@@ -95,5 +105,6 @@ export const unlockResume = createServerFn({ method: 'POST' })
     return {
       data: projects,
       exp: verified.exp,
+      recipient: verified.recipient,
     }
   })
