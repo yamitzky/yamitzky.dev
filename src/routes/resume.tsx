@@ -35,6 +35,9 @@ function ResumePage() {
   const [unlockError, setUnlockError] = useState<string | null>(null)
   const [unlocking, setUnlocking] = useState(false)
 
+  // 職務経歴書の作成日
+  const resumeDate = '2026年1月18日'
+
   // Get icon based on artifact URL
   const getArtifactIcon = (url: string) => {
     if (url.includes('github.com')) {
@@ -135,7 +138,16 @@ function ResumePage() {
   }
 
   const handlePrint = () => {
+    const originalTitle = document.title
+    // 印刷用のファイル名に変更（例：「職務経歴書_小笠原光貴_2026年1月18日.pdf」）
+    document.title = `職務経歴書_小笠原光貴_${resumeDate}`
+
     window.print()
+
+    // 印刷ダイアログが閉じたら元に戻す
+    setTimeout(() => {
+      document.title = originalTitle
+    }, 100)
   }
 
   // Helper to get projects for a company
@@ -220,7 +232,7 @@ function ResumePage() {
         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 mb-2 print:mb-1 print:flex-row print:items-baseline print:justify-between">
           <h1 className="text-3xl font-bold print:text-2xl">小笠原 光貴</h1>
           <p className="text-sm text-[var(--text-muted)] print:text-xs">
-            2026年1月18日
+            {resumeDate}
           </p>
         </div>
         <p className="text-lg text-[var(--text-secondary)] mb-4 print:text-sm print:mb-2">
