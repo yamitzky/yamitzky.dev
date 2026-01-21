@@ -4,11 +4,17 @@
 // 職務経歴（会社 ∋ {経歴, プロジェクト}）
 // =============================================================================
 
+export type Artifact = {
+  title: string
+  url: string
+}
+
 export type Project = {
   title: string
   achievements: string[]
   description?: string
   technologies?: string[]
+  artifacts?: Artifact[]
 }
 
 export type WorkExperience = {

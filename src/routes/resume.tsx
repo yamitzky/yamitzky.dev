@@ -340,7 +340,7 @@ function ResumePage() {
                             </p>
                           )}
                           {project.technologies && (
-                            <div className="flex flex-wrap gap-1.5 print:gap-1">
+                            <div className="flex flex-wrap gap-1.5 print:gap-1 mb-2 print:mb-1">
                               {project.technologies.map((tech) => (
                                 <span
                                   key={tech}
@@ -351,6 +351,37 @@ function ResumePage() {
                               ))}
                             </div>
                           )}
+                          {project.artifacts &&
+                            project.artifacts.length > 0 && (
+                              <div className="space-y-1">
+                                {project.artifacts.map((artifact, aridx) => (
+                                  <div key={aridx}>
+                                    <a
+                                      href={artifact.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="text-xs text-[var(--accent)] link-hover flex items-center gap-1 print:text-black print:no-underline"
+                                    >
+                                      <svg
+                                        className="w-3 h-3 shrink-0"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                      >
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth={2}
+                                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        />
+                                      </svg>
+                                      <span>{artifact.title}</span>
+                                    </a>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
                         </div>
                       ))}
                     </div>
