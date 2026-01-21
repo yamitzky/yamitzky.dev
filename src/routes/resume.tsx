@@ -35,6 +35,63 @@ function ResumePage() {
   const [unlockError, setUnlockError] = useState<string | null>(null)
   const [unlocking, setUnlocking] = useState(false)
 
+  // Get icon based on artifact URL
+  const getArtifactIcon = (url: string) => {
+    if (url.includes('github.com')) {
+      // GitHub icon
+      return (
+        <svg
+          className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            fillRule="evenodd"
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+            clipRule="evenodd"
+          />
+        </svg>
+      )
+    }
+    if (url.includes('speakerdeck.com')) {
+      // Presentation icon
+      return (
+        <svg
+          className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+          />
+        </svg>
+      )
+    }
+    // Article/blog icon
+    return (
+      <svg
+        className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        />
+      </svg>
+    )
+  }
+
   const tryUnlock = useCallback(async (token: string) => {
     try {
       const result = await unlockResume({ data: { token } })
@@ -274,15 +331,22 @@ function ResumePage() {
         <h2 className="resume-section-title text-sm font-mono font-medium text-[var(--text-muted)] uppercase tracking-wider mb-8">
           職務経歴
         </h2>
-        <div className="space-y-16 print:space-y-8">
-          {workExperiences.map((exp) => {
+        <div className="space-y-12 print:space-y-8">
+          {workExperiences.map((exp, expIdx) => {
             const companyProjects = getProjects(exp.company)
             return (
-              <div key={exp.company} className="company-block">
+              <div
+                key={exp.company}
+                className={`company-block ${
+                  expIdx > 0
+                    ? 'pt-12 print:pt-8 border-t-2 border-[var(--border)] print:border-gray-300'
+                    : ''
+                }`}
+              >
                 {/* Company Header + Roles */}
                 <div className="mb-6 print:mb-4">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 print:flex-row print:items-baseline print:justify-between">
-                    <h3 className="text-xl font-semibold print:text-base print:font-bold">
+                    <h3 className="text-xl font-semibold text-[var(--accent)] print:text-base print:font-bold print:text-black">
                       {exp.company}
                     </h3>
                     <span className="text-sm text-[var(--text-muted)] print:text-xs">
@@ -315,10 +379,13 @@ function ResumePage() {
                     主要プロジェクト
                   </h4>
                   {companyProjects ? (
-                    <div className="space-y-5 print:space-y-3">
+                    <div className="space-y-6 print:space-y-4">
                       {companyProjects.map((project, pidx) => (
-                        <div key={pidx} className="project-block">
-                          <h5 className="font-medium text-[var(--accent)] mb-2 print:text-black print:text-sm print:font-bold">
+                        <div
+                          key={pidx}
+                          className="project-block pb-6 print:pb-4 border-b border-[var(--border)] last:border-b-0 last:pb-0 print:border-gray-200"
+                        >
+                          <h5 className="font-semibold text-[var(--text-primary)] mb-2 print:text-sm">
                             {project.title}
                           </h5>
                           <ul className="space-y-1 print:space-y-0.5 mb-2 print:mb-1">
@@ -351,6 +418,29 @@ function ResumePage() {
                               ))}
                             </div>
                           )}
+                          {project.artifacts &&
+                            project.artifacts.length > 0 && (
+                              <div className="mt-3 print:mt-2">
+                                <h6 className="text-xs font-medium text-[var(--text-muted)] mb-1.5 print:text-[10px] print:mb-1">
+                                  関連成果物
+                                </h6>
+                                <div className="space-y-1 print:space-y-0.5">
+                                  {project.artifacts.map((artifact, aridx) => (
+                                    <div key={aridx}>
+                                      <a
+                                        href={artifact.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] hover:underline transition-colors flex items-center gap-1.5 print:text-black print:no-underline print:text-[10px]"
+                                      >
+                                        {getArtifactIcon(artifact.url)}
+                                        <span>{artifact.title}</span>
+                                      </a>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                         </div>
                       ))}
                     </div>

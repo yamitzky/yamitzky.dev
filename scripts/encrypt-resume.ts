@@ -17,20 +17,27 @@ const plaintextPath = path.join(process.cwd(), 'resume.plaintext.ts')
 const legacyPath = path.join(process.cwd(), 'src/data/resume.ts')
 const outputPath = path.join(process.cwd(), 'src/data/resume.encrypted.json')
 
+type Artifact = {
+  title: string
+  url: string
+}
+
 type Project = {
   title: string
   achievements: string[]
   description?: string
   technologies?: string[]
+  artifacts?: Artifact[]
 }
 
-type WorkExperience = {
+// Type for plaintext file (only contains company and projects, not period/roles)
+type PlaintextWorkExperience = {
   company: string
   projects: Project[]
 }
 
 async function main() {
-  let workExperiences: WorkExperience[]
+  let workExperiences: PlaintextWorkExperience[]
 
   // Try to load from resume.plaintext.ts first, then fall back to resume.ts
   if (fs.existsSync(plaintextPath)) {
