@@ -23,10 +23,7 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
-      {
-        rel: 'icon',
-        href: 'https://raw.githubusercontent.com/yamitzky/yamitzky.dev/ed76aaa306d0b398b541b8065fd25f81726c0806/public/favicon.ico',
-      },
+      { rel: 'icon', href: '/favicon.ico' },
     ],
   }),
   component: RootComponent,
