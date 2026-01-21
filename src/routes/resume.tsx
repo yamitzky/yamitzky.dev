@@ -10,9 +10,8 @@ import {
   resumeSummary,
   workExperiences,
 } from '@/data/resume'
-import encryptedData from '@/data/resume.encrypted.json'
 import { skillCategories, skills } from '@/data/skills'
-import { decryptWorkExperiences, verifyToken } from '@/lib/crypto'
+import { unlockResume } from '@/functions/resume'
 
 export const Route = createFileRoute('/resume')({
   head: () => ({
@@ -37,26 +36,17 @@ function ResumePage() {
   const [unlocking, setUnlocking] = useState(false)
 
   const tryUnlock = useCallback(async (token: string) => {
-    const signingKey = import.meta.env.VITE_SIGNING_KEY
-    if (!signingKey) {
-      return { success: false, error: '設定エラー' }
-    }
-
-    const verified = await verifyToken(token, signingKey)
-    if (!verified) {
-      return { success: false, error: 'トークンが無効または期限切れです' }
-    }
-
     try {
-      const data = await decryptWorkExperiences<EncryptedProjects>(
-        encryptedData,
-        verified.key
-      )
-      setProjects(data)
-      setTokenExpiry(new Date(verified.exp * 1000))
+      const result = await unlockResume({ data: { token } })
+      setProjects(result.data)
+      setTokenExpiry(new Date(result.exp * 1000))
       return { success: true, error: null }
-    } catch {
-      return { success: false, error: '復号に失敗しました' }
+    } catch (e) {
+      const message = e instanceof Error ? e.message : '復号に失敗しました'
+      if (message.includes('Invalid or expired')) {
+        return { success: false, error: 'トークンが無効または期限切れです' }
+      }
+      return { success: false, error: message }
     }
   }, [])
 
