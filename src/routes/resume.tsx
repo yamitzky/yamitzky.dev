@@ -41,7 +41,7 @@ function ResumePage() {
       // GitHub icon
       return (
         <svg
-          className="w-3.5 h-3.5 shrink-0"
+          className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -58,7 +58,7 @@ function ResumePage() {
       // Presentation icon
       return (
         <svg
-          className="w-3.5 h-3.5 shrink-0"
+          className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -76,7 +76,7 @@ function ResumePage() {
     // Article/blog icon
     return (
       <svg
-        className="w-3.5 h-3.5 shrink-0"
+        className="w-3.5 h-3.5 shrink-0 print:w-2.5 print:h-2.5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -331,11 +331,18 @@ function ResumePage() {
         <h2 className="resume-section-title text-sm font-mono font-medium text-[var(--text-muted)] uppercase tracking-wider mb-8">
           職務経歴
         </h2>
-        <div className="space-y-16 print:space-y-8">
-          {workExperiences.map((exp) => {
+        <div className="space-y-12 print:space-y-8">
+          {workExperiences.map((exp, expIdx) => {
             const companyProjects = getProjects(exp.company)
             return (
-              <div key={exp.company} className="company-block">
+              <div
+                key={exp.company}
+                className={`company-block ${
+                  expIdx > 0
+                    ? 'pt-12 print:pt-8 border-t-2 border-[var(--border)] print:border-gray-300'
+                    : ''
+                }`}
+              >
                 {/* Company Header + Roles */}
                 <div className="mb-6 print:mb-4">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0 print:flex-row print:items-baseline print:justify-between">
@@ -372,10 +379,13 @@ function ResumePage() {
                     主要プロジェクト
                   </h4>
                   {companyProjects ? (
-                    <div className="space-y-5 print:space-y-3">
+                    <div className="space-y-6 print:space-y-4">
                       {companyProjects.map((project, pidx) => (
-                        <div key={pidx} className="project-block">
-                          <h5 className="font-medium text-[var(--accent)] mb-2 print:text-black print:text-sm print:font-bold">
+                        <div
+                          key={pidx}
+                          className="project-block pb-6 print:pb-4 border-b border-[var(--border)] last:border-b-0 last:pb-0 print:border-gray-200"
+                        >
+                          <h5 className="font-semibold text-[var(--text-primary)] mb-2 print:text-sm">
                             {project.title}
                           </h5>
                           <ul className="space-y-1 print:space-y-0.5 mb-2 print:mb-1">
@@ -410,18 +420,18 @@ function ResumePage() {
                           )}
                           {project.artifacts &&
                             project.artifacts.length > 0 && (
-                              <div className="mt-3 pt-3 border-t border-[var(--border)] print:mt-2 print:pt-2 print:border-gray-300">
-                                <h6 className="text-xs font-medium text-[var(--text-muted)] mb-2 print:text-[10px] print:mb-1">
+                              <div className="mt-3 print:mt-2">
+                                <h6 className="text-xs font-medium text-[var(--text-muted)] mb-1.5 print:text-[10px] print:mb-1">
                                   関連成果物
                                 </h6>
-                                <div className="space-y-1.5 print:space-y-0.5">
+                                <div className="space-y-1 print:space-y-0.5">
                                   {project.artifacts.map((artifact, aridx) => (
                                     <div key={aridx}>
                                       <a
                                         href={artifact.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="text-xs text-[var(--accent)] hover:underline hover:brightness-110 transition-all flex items-center gap-1.5 print:text-black print:no-underline print:text-[10px]"
+                                        className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] hover:underline transition-colors flex items-center gap-1.5 print:text-black print:no-underline print:text-[10px]"
                                       >
                                         {getArtifactIcon(artifact.url)}
                                         <span>{artifact.title}</span>
