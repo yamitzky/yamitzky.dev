@@ -11,6 +11,7 @@ import {
   workExperiences,
 } from '@/data/resume'
 import { skillCategories, skills } from '@/data/skills'
+import { unlockResume } from '@/functions/resume'
 
 export const Route = createFileRoute('/resume')({
   head: () => ({
@@ -36,26 +37,16 @@ function ResumePage() {
 
   const tryUnlock = useCallback(async (token: string) => {
     try {
-      const response = await fetch('/api/resume', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token }),
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        if (response.status === 401) {
-          return { success: false, error: 'トークンが無効または期限切れです' }
-        }
-        return { success: false, error: error.error || '復号に失敗しました' }
-      }
-
-      const result = await response.json()
-      setProjects(result.data)
+      const result = await unlockResume({ data: { token } })
+      setProjects(result.data as EncryptedProjects)
       setTokenExpiry(new Date(result.exp * 1000))
       return { success: true, error: null }
-    } catch {
-      return { success: false, error: '通信エラーが発生しました' }
+    } catch (e) {
+      const message = e instanceof Error ? e.message : '復号に失敗しました'
+      if (message.includes('Invalid or expired')) {
+        return { success: false, error: 'トークンが無効または期限切れです' }
+      }
+      return { success: false, error: message }
     }
   }, [])
 

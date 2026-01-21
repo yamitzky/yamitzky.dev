@@ -1,5 +1,6 @@
 import * as crypto from 'node:crypto'
-import { createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
+import type { EncryptedProjects } from '@/data/resume'
 import encryptedData from '@/data/resume.encrypted.json'
 
 type Token = {
@@ -24,12 +25,10 @@ function verifyToken(tokenStr: string, signingKey: string): Token | null {
     const decoded = JSON.parse(base64UrlDecode(tokenStr))
     const { key, exp, sig } = decoded as Token
 
-    // Check expiration
     if (Date.now() > exp * 1000) {
       return null
     }
 
-    // Verify signature
     const expectedSig = crypto
       .createHmac('sha256', signingKey)
       .update(key + exp.toString())
@@ -53,7 +52,6 @@ function decryptWorkExperiences<T>(
   const iv = Buffer.from(encrypted.iv, 'base64')
   const ciphertext = Buffer.from(encrypted.ciphertext, 'base64')
 
-  // AES-GCM: last 16 bytes are the auth tag
   const authTag = ciphertext.subarray(ciphertext.length - 16)
   const encryptedContent = ciphertext.subarray(0, ciphertext.length - 16)
 
@@ -68,53 +66,27 @@ function decryptWorkExperiences<T>(
   return JSON.parse(decrypted.toString('utf-8'))
 }
 
-export const Route = createFileRoute('/api/resume')({
-  server: {
-    handlers: {
-      POST: async ({ request }) => {
-        const signingKey = process.env.RESUME_SIGNING_KEY
-        const masterKey = process.env.RESUME_MASTER_KEY
+export const unlockResume = createServerFn({ method: 'POST' })
+  .inputValidator((data: { token: string }) => data)
+  .handler(async ({ data }) => {
+    const signingKey = process.env.RESUME_SIGNING_KEY
+    const masterKey = process.env.RESUME_MASTER_KEY
 
-        if (!signingKey || !masterKey) {
-          return Response.json(
-            { error: 'Server configuration error' },
-            { status: 500 }
-          )
-        }
+    if (!signingKey || !masterKey) {
+      throw new Error('Server configuration error')
+    }
 
-        let body: { token?: string }
-        try {
-          body = await request.json()
-        } catch {
-          return Response.json(
-            { error: 'Invalid request body' },
-            { status: 400 }
-          )
-        }
+    const verified = verifyToken(data.token, signingKey)
+    if (!verified) {
+      throw new Error('Invalid or expired token')
+    }
 
-        const { token } = body
-        if (!token || typeof token !== 'string') {
-          return Response.json({ error: 'Token is required' }, { status: 400 })
-        }
-
-        const verified = verifyToken(token, signingKey)
-        if (!verified) {
-          return Response.json(
-            { error: 'Invalid or expired token' },
-            { status: 401 }
-          )
-        }
-
-        try {
-          const data = decryptWorkExperiences(encryptedData, verified.key)
-          return Response.json({
-            data,
-            exp: verified.exp,
-          })
-        } catch {
-          return Response.json({ error: 'Decryption failed' }, { status: 500 })
-        }
-      },
-    },
-  },
-})
+    const projects = decryptWorkExperiences<EncryptedProjects>(
+      encryptedData,
+      verified.key
+    )
+    return {
+      data: projects,
+      exp: verified.exp,
+    }
+  })
