@@ -249,8 +249,9 @@ function ResumePage() {
         </div>
         {/* Print only: simple contact info */}
         <p className="hidden print:block text-sm text-gray-600">
-          GitHub: github.com/yamitzky | X: @yamitzky | Web: yamitzky.dev | Blog:
-          yamitzky.dev/blog
+          GitHub: github.com/yamitzky | X: @yamitzky | Web:{' '}
+          <a href="https://yamitzky.dev">yamitzky.dev</a> | Blog:{' '}
+          <a href="https://yamitzky.dev/blog">yamitzky.dev/blog</a>
         </p>
       </header>
 
