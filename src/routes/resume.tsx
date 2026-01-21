@@ -38,7 +38,7 @@ function ResumePage() {
   const tryUnlock = useCallback(async (token: string) => {
     try {
       const result = await unlockResume({ data: { token } })
-      setProjects(result.data as EncryptedProjects)
+      setProjects(result.data)
       setTokenExpiry(new Date(result.exp * 1000))
       return { success: true, error: null }
     } catch (e) {
