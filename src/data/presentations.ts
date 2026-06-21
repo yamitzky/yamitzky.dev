@@ -2,6 +2,12 @@ import type { Presentation } from '@/types'
 
 export const presentations: Presentation[] = [
   {
+    event: 'AI Engineering Night 〜エージェント構築とデータ整備の実践知〜',
+    title: '後任はAIです。〜情シスをAIにまかせて会社を休んでみた話〜',
+    url: 'https://findy-tools.connpass.com/event/394417/',
+    year: 2026,
+  },
+  {
     event: '情シス・コーポレートITのSaaSアカウント管理　効率化の取り組み',
     title: 'ひとり情シスなCTOがLLMと始めるオペレーション最適化',
     url: 'https://findy.connpass.com/event/358280/',
