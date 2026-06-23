@@ -34,9 +34,24 @@ export const mainOSSProjects: OSSProject[] = [
     description:
       'Redash上のグラフやダッシュボードを、Slack上にポストするbotです(TypeScript製)。Slack boltを使っています。会社をよりデータドリブンにするために作ったものです。',
   },
+  {
+    title: 'Whiplash LLM',
+    url: 'https://github.com/yamitzky/whiplash-llm',
+    github: 'https://github.com/yamitzky/whiplash-llm',
+    description:
+      'macOSのメニューバーから、画面上の情報についてLLMに問い合わせられるアプリです。',
+  },
 ]
 
 export const otherOSSItems: OSSItem[] = [
+  {
+    title: 'sladm - Slack admin CLI + Agent Skill',
+    url: 'https://zenn.dev/yamitzky/articles/784c404d4271ce',
+  },
+  {
+    title: 'freee CLI + Agent Skill',
+    url: 'https://zenn.dev/yamitzky/articles/94c5e2264403bb',
+  },
   {
     title: 'Custom Kibela -> Slack Webhook (Python)',
     url: 'https://github.com/jxpress/kibela-to-slack',
