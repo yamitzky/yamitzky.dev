@@ -11,6 +11,14 @@ export const mainOSSProjects: OSSProject[] = [
       'Firebase、Chakra UI、Next.jsなどで作られた、サーバーレスで運用コストがほぼゼロ円の本格的CMSです。',
   },
   {
+    title: 'Whiplash LLM',
+    url: 'https://github.com/yamitzky/whiplash-llm',
+    github: 'https://github.com/yamitzky/whiplash-llm',
+    image: '/whiplash-llm.gif',
+    description:
+      'キーボードショートカットで画面上の情報についてLLMに問い合わせられるmacOSアプリです。',
+  },
+  {
     title: 'ailingo',
     url: 'https://github.com/yamitzky/ailingo',
     github: 'https://github.com/yamitzky/ailingo',
@@ -31,16 +39,9 @@ export const mainOSSProjects: OSSProject[] = [
     title: 'Redash bot',
     url: 'https://github.com/yamitzky/redashbot',
     github: 'https://github.com/yamitzky/redashbot',
+    image: '/redashbot.png',
     description:
       'Redash上のグラフやダッシュボードを、Slack上にポストするbotです(TypeScript製)。Slack boltを使っています。会社をよりデータドリブンにするために作ったものです。',
-  },
-  {
-    title: 'Whiplash LLM',
-    url: 'https://github.com/yamitzky/whiplash-llm',
-    github: 'https://github.com/yamitzky/whiplash-llm',
-    image: '/whiplash-llm.gif',
-    description:
-      'macOSのメニューバーから、画面上の情報についてLLMに問い合わせられるアプリです。',
   },
   {
     title: 'sladm',
@@ -52,7 +53,8 @@ export const mainOSSProjects: OSSProject[] = [
   },
   {
     title: 'freee CLI + Agent Skill',
-    url: 'https://zenn.dev/yamitzky/articles/94c5e2264403bb',
+    url: 'https://github.com/yamitzky/freee-cli',
+    github: 'https://github.com/yamitzky/freee-cli',
     article: 'https://zenn.dev/yamitzky/articles/94c5e2264403bb',
     description:
       'freee APIをCLIから操作するツールとAgent Skill。MCP方式と比べてトークン効率を75%改善しました。',
