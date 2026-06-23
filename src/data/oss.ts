@@ -38,6 +38,7 @@ export const mainOSSProjects: OSSProject[] = [
     title: 'Whiplash LLM',
     url: 'https://github.com/yamitzky/whiplash-llm',
     github: 'https://github.com/yamitzky/whiplash-llm',
+    image: '/whiplash-llm.gif',
     description:
       'macOSのメニューバーから、画面上の情報についてLLMに問い合わせられるアプリです。',
   },
