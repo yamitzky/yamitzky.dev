@@ -44,14 +44,26 @@ export function OSS() {
                     Demo
                   </a>
                 )}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--accent)] link-hover"
-                >
-                  GitHub
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--accent)] link-hover"
+                  >
+                    GitHub
+                  </a>
+                )}
+                {project.article && (
+                  <a
+                    href={project.article}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--accent)] link-hover"
+                  >
+                    Article
+                  </a>
+                )}
               </div>
             </div>
           </article>

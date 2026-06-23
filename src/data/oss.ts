@@ -41,17 +41,24 @@ export const mainOSSProjects: OSSProject[] = [
     description:
       'macOSのメニューバーから、画面上の情報についてLLMに問い合わせられるアプリです。',
   },
-]
-
-export const otherOSSItems: OSSItem[] = [
   {
-    title: 'sladm - Slack admin CLI + Agent Skill',
-    url: 'https://zenn.dev/yamitzky/articles/784c404d4271ce',
+    title: 'sladm',
+    url: 'https://github.com/yamitzky/slack-admin-cli',
+    github: 'https://github.com/yamitzky/slack-admin-cli',
+    article: 'https://zenn.dev/yamitzky/articles/784c404d4271ce',
+    description:
+      'Slackの組織管理業務をAIに任せるための、80以上のコマンドを備えたCLI + Agent Skillです(TypeScript製)。',
   },
   {
     title: 'freee CLI + Agent Skill',
     url: 'https://zenn.dev/yamitzky/articles/94c5e2264403bb',
+    article: 'https://zenn.dev/yamitzky/articles/94c5e2264403bb',
+    description:
+      'freee APIをCLIから操作するツールとAgent Skill。MCP方式と比べてトークン効率を75%改善しました。',
   },
+]
+
+export const otherOSSItems: OSSItem[] = [
   {
     title: 'Custom Kibela -> Slack Webhook (Python)',
     url: 'https://github.com/jxpress/kibela-to-slack',

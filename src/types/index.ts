@@ -30,8 +30,9 @@ export type Presentation = {
 export type OSSProject = {
   title: string
   url: string
-  github: string
+  github?: string
   demo?: string
+  article?: string
   image?: string
   description: string
 }
