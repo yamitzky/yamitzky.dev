@@ -49,7 +49,7 @@ export const mainOSSProjects: OSSProject[] = [
     github: 'https://github.com/yamitzky/slack-admin-cli',
     article: 'https://zenn.dev/yamitzky/articles/784c404d4271ce',
     description:
-      'Slackの組織管理業務をAIに任せるための、80以上のコマンドを備えたCLI + Agent Skillです(TypeScript製)。',
+      'SlackのEnterprise GridやSCIM関連の操作をAIに任せるための、CLI + Agent Skillです(TypeScript製)。',
   },
   {
     title: 'freee CLI + Agent Skill',
